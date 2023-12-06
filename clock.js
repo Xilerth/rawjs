@@ -15,6 +15,7 @@ class Clock extends HTMLElement {
     
     <p>This is a simple clock web component!</p>`;
     this.shadowRoot.appendChild(e.content.cloneNode(!0));
+    this.connectedCallback();
   }
 
   connectedCallback() {

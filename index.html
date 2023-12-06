@@ -9,10 +9,19 @@
 
 <body>
     <script defer>
-
-
         function loadComponent() {
             fetch('https://raw.githubusercontent.com/Xilerth/rawjs/main/test.js')
+                .then(response => response.text())
+                .then(data => {
+                    const script = document.createElement('script');
+                    script.innerText = data;
+                    console.log(script)
+                    document.body.appendChild(script);
+                });
+        }
+
+        function loadClockComponent() {
+            fetch('https://raw.githubusercontent.com/Xilerth/rawjs/main/clock.js')
                 .then(response => response.text())
                 .then(data => {
                     const script = document.createElement('script');
@@ -27,6 +36,11 @@
             document.body.appendChild(test);
         }
 
+        function addClockComponent() {
+            const test = document.createElement('my-clock');
+            document.body.appendChild(test);
+        }
+
     </script>
 
     <button onclick="addWebComponent()">
@@ -37,6 +51,17 @@
     <button onclick="loadComponent()">
         Load Web Component
     </button>
+
+
+    <button onclick="addClockComponent()">
+        Add Clock Component
+    </button>
+
+    <button onclick="loadClockComponent()">
+        Load Clock Component
+    </button>
+
+    <my-clock></my-clock>
 
 </body>
 
