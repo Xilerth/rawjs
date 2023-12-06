@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Load Web Component from External Resource</title>
+</head>
+<body>
+<script defer>
+    // get test.js from external resource
+    const script = document.createElement('script');
+    script.src = 'https://raw.githubusercontent.com/robert0714/JS-Web-Component/master/external/test.js';
+    document.head.appendChild(script);
+    
+</script>
+
+</body>
+</html>
