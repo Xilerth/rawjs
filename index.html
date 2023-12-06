@@ -8,9 +8,9 @@
 </head>
 
 <body>
-    
+
     <!-- loadClock script -->
-    <!-- <script src="clock.js"></script> -->
+    <script src="analogClock.js" defer></script>
 
     <script defer>
 
@@ -21,7 +21,6 @@
                 .then(data => {
                     const script = document.createElement('script');
                     script.innerText = data;
-                    console.log(script)
                     document.body.appendChild(script);
                 });
         }
@@ -32,7 +31,16 @@
                 .then(data => {
                     const script = document.createElement('script');
                     script.innerText = data;
-                    console.log(script)
+                    document.body.appendChild(script);
+                });
+        }
+
+        function loadAnalogClockComponent() {
+            fetch('https://raw.githubusercontent.com/Xilerth/rawjs/main/analogClock.js')
+                .then(response => response.text())
+                .then(data => {
+                    const script = document.createElement('script');
+                    script.innerText = data;
                     document.body.appendChild(script);
                 });
         }
@@ -43,8 +51,13 @@
         }
 
         function addClockComponent() {
-            const test = document.createElement('my-clock');
-            document.body.appendChild(test);
+            const clock = document.createElement('my-clock');
+            document.body.appendChild(clock);
+        }
+
+        function addAnalogyClockComponent() {
+            const analogyClock = document.createElement('analogy-clock');
+            document.body.appendChild(analogyClock);
         }
 
     </script>
@@ -67,8 +80,14 @@
         Load Clock Component
     </button>
 
-    <my-clock></my-clock>
 
+
+
+    <button onclick="addAnalogyClockComponent()">
+        Add Analogy Clock Component
+    </button>
+
+    <analogy-clock></analogy-clock>
 </body>
 
 </html>
