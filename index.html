@@ -9,23 +9,34 @@
 
 <body>
     <script defer>
-        // fetch test.js from the server
-        fetch('https://raw.githubusercontent.com/Xilerth/rawjs/main/test.js')
-            .then(response => response.text())
-            .then(data => {
-                // create a script element
-                const script = document.createElement('script');
-                // set the inner text to the content of test.js
-                script.innerText = data;
-                // append the script to the body
-                console.log(script)
-                document.body.appendChild(script);
-            });
 
-        const test = document.createElement('my-component');
-        document.body.appendChild(test);
+
+        function loadComponent() {
+            fetch('https://raw.githubusercontent.com/Xilerth/rawjs/main/test.js')
+                .then(response => response.text())
+                .then(data => {
+                    const script = document.createElement('script');
+                    script.innerText = data;
+                    console.log(script)
+                    document.body.appendChild(script);
+                });
+        }
+
+        function addWebComponent() {
+            const test = document.createElement('my-component');
+            document.body.appendChild(test);
+        }
 
     </script>
+
+    <button onclick="addWebComponent()">
+        Add Web Component
+    </button>
+
+
+    <button onclick="loadComponent()">
+        Load Web Component
+    </button>
 
 </body>
 
