@@ -13,7 +13,7 @@ class Clock extends HTMLElement {
     }
     </style>
     
-    <p>This is a simple web component!</p>`;
+    <p>This is a simple clock web component!</p>`;
     this.shadowRoot.appendChild(e.content.cloneNode(!0));
   }
 
